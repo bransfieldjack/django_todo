@@ -2,7 +2,7 @@
 
 !["Django logo"](https://s3-ap-southeast-2.amazonaws.com/django-todo/testing/django-logo-positive.png)
 
-### Configuration Setup
+## Configuration Setup
 
 * sudo pip3 install django==1.11.
 * django-admin startproject django_todo .
@@ -14,7 +14,7 @@
 * Add a templates folder to the todo folder, add a nlank html file with some boiler plate code. This will be called/accessed from the views.py file. 
 * In order for any of the apps to work, they need to be added to the settings.py file under installed apps. 
 
-### The admin panel
+## The admin panel
 
 * To access the sqlite3 database, run: sqlite3 db.sqlite3.
 * Django comes with a way of managing versions of tables and databases - migrations. 
@@ -25,9 +25,9 @@
 * To access th admin panel, add /admin in front of the home view URL. 
 * To create an sqlite3rc file, with .headers and .mode columns, add the new file to the ~/ directory. 
 
-### Models
+## Models
 
-* A way for ouur python code to interact with our databases. 
+* A way for our python code to interact with our databases. 
 * python3 manage.py makemigrations - creates config file for django to know what to do. 
 * python3 manage.py migrate - creates a new table in the database called todo_item. 
 * add, admin.site.register(Item) to the admin.py file, and check the admin console to confirm. 
@@ -35,12 +35,12 @@
 * In order to have the items display a more human readable version of the name, add the ' def __str__(self): return self.name ' to the end of the models file. 
 * Templating can be used on the .html page to iterate through a list and display itsm from the model. 
 
-### Form Input, template to model
+## Form Input, template to model
 
 * This is a way of posting data from the html form to the server. 
 * This can also be done using django forms.
 
-### Testing
+## Testing
 
 * Pass TestCase as a parameter: 
 
@@ -62,7 +62,7 @@
 
 !["Coverage statistics: "](https://s3-ap-southeast-2.amazonaws.com/django-todo/testing/test_views.PNG)
 
-### Deployment
+## Deployment
 
 * Hosting a Django application.
 * Hosting a PostgreSQL database.
@@ -77,10 +77,34 @@
 * Psycopg2 install: sudo pip3 freeze install psycopg2.
 * Requirements file, for deployment to heroku: pip3 freeze --local > requirements.txt.
 
- - Heroku Deployment:
+### Making code deployment ready
+
+* Heroku Deployment:
 
 * heroku create jackalack117-django-todo --region eu.
-
- - Inspecting apps on the dashboard:
-
+* Inspecting apps on the dashboard:
 * Allows to inspect all apps, do this from the dashboard - easier.
+
+* Creating a new database on heroku:
+
+* Heroku Addons: Allows us to create and manage addons for applications.
+* heroku addons:create heroku-postgresql:hobby-dev.
+* hobby-dev: specifies a free account level subscription. 
+
+* Connecting to the remote database:
+* dj_database_url: A package that parses database URIs
+* Database URI can be found in heroku config vars. Was installed with postgresql ^.
+* sudo pip3 install dj_database_url (installs the django database url, allowing us to parse URL's).
+* sudo pip3 freeze --local > requirements.txt (do this again to update the requirements file with postgresql package).
+* Open the settings.py file in the django project. Look under database configuration, comment out the existing boilerplate databases dictionary.
+* Replace with the following, add the database url from heroku config vars:
+
+    ```
+    DATABASES  = {
+        'default': dj_database_url.parse(postgres://xztqkyyzdycbya:e4b6c85620819f3fe303c37eb3ec61f561e7ce46fdc4aad99d0e18b064bd7b90@ec2-54-247-119-167.eu-west-1.compute.amazonaws.com:5432/d2ql3p65qfosau)
+    }
+    ```
+* import dj_database_url, at the top of the page under import os.
+* Next, connect your django project to the postgresql database with the following migrate command:
+* python3 manage.py migrate
+* Push all changes to gihub after your finished. 
