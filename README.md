@@ -123,8 +123,12 @@
 * Need to be turned off as we do not have a process for dealing with it. 
 
 * Add the procfile for the build:
-* echo web: gunicorn django_todo.wsgi:application > Procfile
+
+* echo web: gunicorn django_todo.wsgi:application > Procfile.
 * 'Web' tells heroku that this is a web app.
 * This tells gunicorn to run the wsgi app in heroku. 
 * We are using gunicorn instead of django's built in server, and we need to point it to the WSGI application. 
-* 
+
+* Fix ALLOWED_HOSTS & Run The Project:
+
+* Add, jackalack117-django-todo.herokuapp.com to the 'ALLOWED HOSTS' section of the settings.py file in the django project. 
