@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^$', get_todo_list),
     url(r'^add$', create_an_item),
     url(r'^edit/(?P<id>\d+)$', edit_an_item),
-    url(r'^toggle/(?P<id>\d+)$', edit_an_item)
+    url(r'^toggle/(?P<id>\d+)$', edit_an_item),
 ]

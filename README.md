@@ -47,5 +47,20 @@
         ```
 
 * Coverage: Allows us to generate reports that will tell use how much of our code has been tested. 
+* Sudo pip3 install coverage. 
+* coverage run --source=todo manage.py test
+* Coverage lets us see how much of our files have had tests run. 
+* coverahe html -  generates a new folder 'htmlcov', inside is a file called index.html. 
 
+### Deployment
 
+* Hosting a Django application
+* Hosting a PostgreSQL database
+* Setup and create a heroku app
+* Create Heroku add-ons (PostgreSQL)
+* Deploy a Django project
+* Automate further deployments
+* Secure and seperate dev code from live code
+* Project requirements, gunicorn(Python Web Server Gateway Interface HTTP server.) & psycopg2(Psycopg2 is a DB API 2.0 compliant PostgreSQL driver that is actively developed.)
+* Gunicorn: The package used to run the application on the server. 
+* 

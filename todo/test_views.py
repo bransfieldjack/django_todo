@@ -14,7 +14,7 @@ class TestViews(TestCase):
     def test_get_add_item_page(self):
         page = self.client.get("/")
         self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "item_form.html")
+        self.assertTemplateUsed(page, "todo_list.html")
         
         
     def test_get_edit_item_page(self):
