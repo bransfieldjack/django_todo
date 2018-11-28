@@ -151,4 +151,37 @@
 * This is useful for security reasons, example secret keys etc.
 * Set the os.environ.get('C9_USERNAME') and os.environ.get('USERNAME') for allowed hosts in settings.py. 
 * Set the DATABASES dictionary to: {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+
+* Development Environment:
+
+* In the settings.py file, use if and else functionality to set the dev database and live databases.
+
+~~~
+import os
+import dj_database_url
+
+if os.environ.get('DEVELOPMENT'):
+    development = True
+else:
+    development = False
+~~~
+~~~
+if development:
+    DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.sqlite3',
+           'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+       }
+    }
+else:
+    DATABASES  = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+~~~
+
+* Environment Variables: 
+
+* Allows us to retieve values from the OS by either using the export command or storing them in the .bashrc file.
+* In the .bashrc file, at the end of the page enter: export DEVELOPMENT=1.
+* This ensures that every time a bash terminal is opened, this change will be applied.
 * 
