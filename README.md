@@ -149,4 +149,6 @@
 * Push to github, automatically deploys from GitHub to heroku. 
 * Environment variables - set these on the OS level, read from there instead of the repo.
 * This is useful for security reasons, example secret keys etc.
+* Set the os.environ.get('C9_USERNAME') and os.environ.get('USERNAME') for allowed hosts in settings.py. 
+* Set the DATABASES dictionary to: {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 * 
