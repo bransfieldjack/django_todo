@@ -1,4 +1,4 @@
-# Django Testing
+# Django Practice
 
 ### Configuration Setup
 
@@ -38,7 +38,14 @@
 * This is a way of posting data from the html form to the server. 
 * This can also be done using django forms.
 
+### Testing
 
+* Pass TestCase as a parameter: 
 
+        ``` def test_is_this_thing_on(self):
+            self.assertEqual(1, 1) 
+        ```
+
+* Coverage: Allows us to generate reports that will tell use how much of our code has been tested. 
 
 
