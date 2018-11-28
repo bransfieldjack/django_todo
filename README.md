@@ -65,6 +65,8 @@
 
 ## Deployment
 
+!["Coverage statistics: "](https://s3-ap-southeast-2.amazonaws.com/django-todo/deployment/heroku_logo.png)
+
 * Hosting a Django application.
 * Hosting a PostgreSQL database.
 * Setup and create a heroku app.
@@ -132,3 +134,19 @@
 * Fix ALLOWED_HOSTS & Run The Project:
 
 * Add, jackalack117-django-todo.herokuapp.com to the 'ALLOWED HOSTS' section of the settings.py file in the django project. 
+
+### Environments, automation & security
+
+* Hooks: between the heroku app and github.
+* Connects the two so Heroku will automatically deploy everytime we push to GitHub.
+* This can be configured in the Heroku dashboard.
+* Go to the heroku app dashboard, select a deployment method.
+* By default, it will be set to heroku git - change it to github. 
+* Sign in, select your repo. 
+
+* Automating Deployment Through GitHub:
+
+* Push to github, automatically deploys from GitHub to heroku. 
+* Environment variables - set these on the OS level, read from there instead of the repo.
+* This is useful for security reasons, example secret keys etc.
+* 
