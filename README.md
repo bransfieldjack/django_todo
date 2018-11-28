@@ -52,6 +52,14 @@
 * Coverage lets us see how much of our files have had tests run. 
 * coverahe html -  generates a new folder 'htmlcov', inside is a file called index.html. 
 
+!["Coverage statistics: "](https://s3-ap-southeast-2.amazonaws.com/django-todo/testing/coverage_report.PNG)
+
+!["Coverage statistics: "](https://s3-ap-southeast-2.amazonaws.com/django-todo/testing/test_forms.PNG)
+
+!["Coverage statistics: "](https://s3-ap-southeast-2.amazonaws.com/django-todo/testing/test_models.PNG)
+
+!["Coverage statistics: "](https://s3-ap-southeast-2.amazonaws.com/django-todo/testing/test_views.PNG)
+
 ### Deployment
 
 * Hosting a Django application
