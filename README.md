@@ -110,7 +110,7 @@
 * import dj_database_url, at the top of the page under import os.
 
 * Next, connect your django project to the postgresql database with the following migrate command:
-* 
+
 * python3 manage.py migrate.
 * Push all changes to gihub after your finished. 
 
