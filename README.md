@@ -44,9 +44,10 @@
 
 * Pass TestCase as a parameter: 
 
-        ``` def test_is_this_thing_on(self):
+        ~~~ 
+        def test_is_this_thing_on(self):
             self.assertEqual(1, 1) 
-        ```
+        ~~~
 
 * Coverage: Allows us to generate reports that will tell use how much of our code has been tested. 
 * Sudo pip3 install coverage. 
@@ -92,6 +93,7 @@
 * hobby-dev: specifies a free account level subscription. 
 
 * Connecting to the remote database:
+
 * dj_database_url: A package that parses database URIs
 * Database URI can be found in heroku config vars. Was installed with postgresql ^.
 * sudo pip3 install dj_database_url (installs the django database url, allowing us to parse URL's).
@@ -99,12 +101,30 @@
 * Open the settings.py file in the django project. Look under database configuration, comment out the existing boilerplate databases dictionary.
 * Replace with the following, add the database url from heroku config vars:
 
-    ```
+    ~~~
     DATABASES  = {
         'default': dj_database_url.parse(postgres://xztqkyyzdycbya:e4b6c85620819f3fe303c37eb3ec61f561e7ce46fdc4aad99d0e18b064bd7b90@ec2-54-247-119-167.eu-west-1.compute.amazonaws.com:5432/d2ql3p65qfosau)
     }
-    ```
+    ~~~
+    
 * import dj_database_url, at the top of the page under import os.
+
 * Next, connect your django project to the postgresql database with the following migrate command:
-* python3 manage.py migrate
+* 
+* python3 manage.py migrate.
 * Push all changes to gihub after your finished. 
+
+* Push your code to heroku, you will get an error:
+
+* $ heroku config:set DISABLE_COLLECTSTATIC=1.
+* You need to set the config var for heroku to complete the build. 
+* heroku config: set DISABLE_COLLECTSTATIC=1.
+* This turns off collection of any static files, html, css, javascript etc. 
+* Need to be turned off as we do not have a process for dealing with it. 
+
+* Add the procfile for the build:
+* echo web: gunicorn django_todo.wsgi:application > Procfile
+* 'Web' tells heroku that this is a web app.
+* This tells gunicorn to run the wsgi app in heroku. 
+* We are using gunicorn instead of django's built in server, and we need to point it to the WSGI application. 
+* 
