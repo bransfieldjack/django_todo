@@ -45,8 +45,10 @@
 * Pass TestCase as a parameter: 
 
         ~~~ 
+        
         def test_is_this_thing_on(self):
             self.assertEqual(1, 1) 
+            
         ~~~
 
 * Coverage: Allows us to generate reports that will tell use how much of our code has been tested. 
@@ -184,4 +186,10 @@ else:
 * Allows us to retieve values from the OS by either using the export command or storing them in the .bashrc file.
 * In the .bashrc file, at the end of the page enter: export DEVELOPMENT=1.
 * This ensures that every time a bash terminal is opened, this change will be applied.
-* 
+
+* The Secret Key:
+
+* Save your sensitive secret key information in an environment variable, not in your apps source code.
+* This will prevent your security being compromised. 
+* Example; bots can scrape github for your credentials and attempt to gain access to your environment(s).
+* heroku config:set SECRET_KEY=" "
